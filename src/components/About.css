@@ -1,0 +1,80 @@
+.about {
+  padding: 5rem 2rem;
+  background-color: #141414;
+  color: white;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2.3rem;
+  color: #00ffcc;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 10px #00ffcc55;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.about-text {
+  max-width: 600px;
+  text-align: left;
+}
+
+.about-text p {
+  margin-bottom: 1.2rem;
+  color: #cccccc;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.resume-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.3rem;
+  background: #00ffcc;
+  color: black;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #00ffcc80;
+}
+
+.resume-button:hover {
+  background: #00e6b8;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00ffcc;
+}
+
+.about-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-ring {
+  width: 180px;
+  height: 180px;
+  padding: 4px;
+  background: linear-gradient(135deg, #00ffcc, #0066ff);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: pulse 3s infinite ease-in-out;
+  box-shadow: 0 0 12px rgba(0, 255, 204, 0.3);
+}
+
+.profile-ring img {
+  width: 165px;
+  height: 165px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #141414;
+}
