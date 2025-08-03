@@ -1,57 +1,64 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Navbar.css';
-import { useEffect, useState } from 'react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-
+import { FaBars, FaTimes, FaGithub, FaLinkedin } from 'react-icons/fa';
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
+    const navbar = document.querySelector('.floating-navbar');
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      if (window.scrollY > 10) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return (
-    <nav className={`floating-navbar ${scrolled ? 'scrolled' : ''}`}>
-      {/* your nav links */}
-      <ul className="nav-links">
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  const toggleMenu = () => {
+    setMenuOpen(prev => !prev);
+  };
 
-  <div className="social-icons">
-  <a href="https://github.com/AnasMuntazir" target="_blank" rel="noopener noreferrer">
-    <i><FaGithub /></i>
-  </a>
-  <a href="www.linkedin.com/in/anas-muntazir" target="_blank" rel="noopener noreferrer">
-    <i><FaLinkedin /></i>
-  </a>
-</div>
-    </nav>
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
+  return (
+    <>
+      <nav className="floating-navbar">
+        <div className="left-icons">
+          <a href="https://github.com/yourgithub" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+          <a href="https://linkedin.com/in/yourlinkedin" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+        </div>
+
+        <ul className="nav-links-desktop">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <button className="menu-toggle" onClick={toggleMenu}>
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+      </nav>
+
+      <ul className={`nav-links-mobile ${menuOpen ? 'active' : ''}`}>
+        <li><a href="#hero" onClick={closeMenu}>Home</a></li>
+        <li><a href="#skills" onClick={closeMenu}>Skills</a></li>
+        <li><a href="#projects" onClick={closeMenu}>Projects</a></li>
+        <li><a href="#about" onClick={closeMenu}>About</a></li>
+        <li><a href="#contact" onClick={closeMenu}>Contact</a></li>
+      </ul>
+    </>
   );
 }
-
-
-// function Navbar() {
-//   return (
-//     <nav className="floating-navbar">
-//   <ul className="nav-links">
-//     <li><a href="#home">Home</a></li>
-//     <li><a href="#skills">Skills</a></li>
-//     <li><a href="#projects">Projects</a></li>
-//     <li><a href="#about">About</a></li>
-//     <li><a href="#contact">Contact</a></li>
-//   </ul>
-// </nav>
-//   );
-// }
 
 export default Navbar;
