@@ -33,8 +33,8 @@ function Navbar() {
     <>
       <nav className="floating-navbar">
         <div className="left-icons">
-          <a href="https://github.com/yourgithub" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
-          <a href="https://linkedin.com/in/yourlinkedin" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+          <a href="https://github.com/AnasMuntazir" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+          <a href="https://www.linkedin.com/in/anas-muntazir-74b310370/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
         </div>
 
         <ul className="nav-links-desktop">

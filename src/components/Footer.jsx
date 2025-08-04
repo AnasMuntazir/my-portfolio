@@ -8,7 +8,7 @@ function Footer() {
       <div className="footer-top" data-aos="fade-up">
         <h3>Anas Muntazir</h3>
         <ul className="footer-links">
-          <li><a href="#home">Home</a></li>
+          <li><a href="#hero">Home</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
